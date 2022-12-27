@@ -1,24 +1,15 @@
 import React from 'react';
-import { GridSizeTypes, Mode } from '../../types';
+import { ControlsProps, Mode } from '../../types';
 import './Controls.css';
 
-interface ControlsProps {
-    getPath: () => void;
-    clearGrid: () => void;
-    gridSize: GridSizeTypes;
-    mode: Mode;
-    setMode: (mode: Mode) => void;
-    updateGridSize: (gridSize: GridSizeTypes) => void;
-}
-
-const Controls: React.FC<ControlsProps> = ({
+const Controls = ({
     getPath,
     clearGrid,
     gridSize,
     mode,
     setMode,
     updateGridSize
-}) => {
+}: ControlsProps) => {
     const activeClass = 'control-button--active';
     const [gridWidth, setGridWidth] = React.useState<number>(0);
     const [gridHeight, setGridHeight] = React.useState<number>(0);

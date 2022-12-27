@@ -1,27 +1,14 @@
 import React from 'react';
 import {
     CellTypes,
-    CoordinateTypes,
-    GridSizeTypes,
     Mode,
-    PathTypes,
+    GridProps,
 } from '../../types';
 import { GridCell } from './GridCell';
 import './Grid.css';
 
-interface GridProps {
-    end: CoordinateTypes;
-    grid: CellTypes[][];
-    gridSize: GridSizeTypes;
-    mode: Mode;
-    path?: PathTypes;
-    setCellWall: (coordinates: CoordinateTypes) => void;
-    setEnd: (coordinates: CoordinateTypes) => void;
-    setStart: (coordinates: CoordinateTypes) => void;
-    start: CoordinateTypes;
-}
 
-const Grid: React.FC<GridProps> = ({
+const Grid = ({
     end,
     grid,
     gridSize,
@@ -31,7 +18,7 @@ const Grid: React.FC<GridProps> = ({
     setEnd,
     setStart,
     start
-}) => {
+}: GridProps) => {
     const [isPressed, setIsPressed] = React.useState<boolean>(false);
 
     const onMouseDown = () => setIsPressed(true);

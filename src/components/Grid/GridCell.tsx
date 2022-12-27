@@ -1,20 +1,8 @@
 import React from 'react';
-import { CoordinateTypes, PathTypes, CellTypes } from '../../types';
+import { GridCellProps } from '../../types';
 import './Grid.css';
 
-interface GridCellProps {
-    cell: CellTypes;
-    colIndex: number;
-    end: CoordinateTypes;
-    isPressed: boolean;
-    onCellClick: (rowIndex: number, colInde: number) => () => void;
-    path?: PathTypes;
-    rowIndex: number;
-    setCellWall: (coords: CoordinateTypes) => void;
-    start: CoordinateTypes;
-}
-
-const GridCell: React.FC<GridCellProps> = React.memo(
+const GridCell = React.memo(
     ({
         cell,
         colIndex,
@@ -25,7 +13,7 @@ const GridCell: React.FC<GridCellProps> = React.memo(
         rowIndex,
         setCellWall,
         start
-    }) => {
+    }: GridCellProps) => {
         const isWall = path && path[rowIndex][colIndex]?.isWall;
         const isPath = path && path[rowIndex][colIndex]?.isPath;
         const isVisited = path && path[rowIndex][colIndex]?.fCost !== 0;
