@@ -1,5 +1,6 @@
 import React from 'react';
 import { ControlsProps, Mode } from '../../types';
+import { Key } from './Key';
 import './Controls.css';
 
 const Controls = ({
@@ -105,24 +106,7 @@ const Controls = ({
                     </div>
                 </fieldset>
             </form>
-            <div className="key-container">
-                <div className="key">
-                    <span className="key-name">Visited</span>
-                    <div className="gridCell gridCell--visited" />
-                </div>
-                <div className="key">
-                    <span className="key-name">Wall</span>
-                    <div className="gridCell gridCell--wall" />
-                </div>
-                <div className="key">
-                    <span className="key-name">Path</span>
-                    <div className="gridCell gridCell--path" />
-                </div>
-                <div className="key">
-                    <span className="key-name">Block</span>
-                    <div className="gridCell gridCell--block" />
-                </div>
-            </div>
+            <Key />
         </>
     );
 };

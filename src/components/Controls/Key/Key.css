@@ -1,0 +1,18 @@
+.key-container {
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 20px;
+}
+
+.key {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+  width: 100px;
+}
+
+.key-name {
+  padding-right: 5px;
+}

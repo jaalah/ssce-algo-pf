@@ -21,6 +21,7 @@ const GridCell = React.memo(
         const cellStatus = cell.status === 'empty' ? '' : `gridCell--${cell.status}`
 
         let cellType;
+
         switch (true) {
             case rowIndex === start.x && colIndex === start.y:
                 cellType = 'gridCell--start';
@@ -38,17 +39,19 @@ const GridCell = React.memo(
                 cellType = 'default';
         }
 
+        const handleMouseEnter = () => {
+            if (isPressed) {
+                setCellWall({ x: rowIndex, y: colIndex });
+            }
+        }
+
         return (
             <div
                 key={`${rowIndex}-${colIndex}`}
                 className={`gridCell ${cellType} ${cellStatus} ${pathStyle}`}
-                onMouseEnter={() => {
-                    if (isPressed) {
-                        setCellWall({ x: rowIndex, y: colIndex });
-                    }
-                }}
+                onMouseEnter={handleMouseEnter}
                 onClick={onCellClick(rowIndex, colIndex)}
-            ></div>
+            />
         );
     }
 );

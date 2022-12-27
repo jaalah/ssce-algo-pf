@@ -58,7 +58,7 @@ const updateGrid = (state: InitialStateTypes): InitialStateTypes => {
 };
 
 const Reducer = (
-    state: InitialStateTypes = initialState(DEFAULT_GRID_SIZE, 20),
+    state: InitialStateTypes = initialState(DEFAULT_GRID_SIZE, DEFAULT_GRID_SIZE),
     action: ActionTypes<any>
 ): InitialStateTypes => {
     switch (action.type) {

@@ -60,22 +60,3 @@ fieldset {
   background-color: #245164;
   transition: background-color 0.2s ease-in-out;
 }
-
-.key-container {
-  bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  right: 20px;
-}
-
-.key {
-  display: flex;
-  justify-content: space-between;
-  padding: 2px 0;
-  width: 100px;
-}
-
-.key-name {
-  padding-right: 5px;
-}
