@@ -29,7 +29,6 @@ const GridCell: React.FC<GridCellProps> = React.memo(
         const isWall = path && path[rowIndex][colIndex]?.isWall;
         const isPath = path && path[rowIndex][colIndex]?.isPath;
         const isVisited = path && path[rowIndex][colIndex]?.fCost !== 0;
-        const animationOffset = path ? path[rowIndex][colIndex]?.counter : 0;
         const pathStyle = isPath ? 'gridCell--path' : '';
         const cellStatus = cell.status === 'empty' ? '' : `gridCell--${cell.status}`
 
@@ -61,11 +60,6 @@ const GridCell: React.FC<GridCellProps> = React.memo(
                     }
                 }}
                 onClick={onCellClick(rowIndex, colIndex)}
-                style={{
-                    animationDelay: animationOffset
-                        ? `${animationOffset * 10}ms`
-                        : undefined
-                }}
             ></div>
         );
     }
