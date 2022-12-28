@@ -1,9 +1,11 @@
-import { range, minBy, remove } from 'lodash';
+import _range from 'lodash/range';
+import _minBy from 'lodash/minBy';
+import _remove from 'lodash/remove';
 import { CoordinateTypes, CellTypes, VisitedCellTypes } from '../types';
 
 const generateGrid = <T extends { x: number; y: number; }>(numberOfRows: number, numberOfColumns: number, value: T): T[][] => {
-  return range(numberOfRows).map((x) =>
-    range(numberOfColumns).map((y) => ({ ...value, x, y })));
+  return _range(numberOfRows).map((x) =>
+    _range(numberOfColumns).map((y) => ({ ...value, x, y })));
 };
 
 // All the coordinates around a cell to check for neighbors (clockwise)
@@ -56,7 +58,7 @@ export const computePath = (mainGrid: CellTypes[][], start: CoordinateTypes, end
   // While there are still cells to check
   while (openList.length > 0) {
     // Get the cell with the lowest fCost
-    const currentCell = minBy(openList, c => c.fCost);
+    const currentCell = _minBy(openList, c => c.fCost);
 
     if (!currentCell) {
       // No path found
@@ -78,7 +80,7 @@ export const computePath = (mainGrid: CellTypes[][], start: CoordinateTypes, end
     }
 
     // Remove the current cell from the open list
-    remove(openList, c => (c.x === currentCell.x && c.y === currentCell.y));
+    _remove(openList, c => (c.x === currentCell.x && c.y === currentCell.y));
 
     // Add the current cell to the closed list
     currentCell.isWall = true;

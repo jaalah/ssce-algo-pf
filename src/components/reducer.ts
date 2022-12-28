@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import _range from 'lodash/range';
+import _cloneDeep from 'lodash/cloneDeep';
 import {
     ActionTypes,
     CellTypes,
@@ -22,7 +23,7 @@ const DEFAULT_GRID_SIZE = 20;
 const CELLS: CellTypes = { status: 'empty' };
 
 const BuildGrid = (width: number, height: number): CellTypes[][] =>
-    _.range(width).map(() => _.range(height).map(() => CELLS));
+    _range(width).map(() => _range(height).map(() => CELLS));
 
 const initialState = (width: number, height: number): InitialStateTypes => ({
     end: { x: width - 1, y: height - 1 },
@@ -37,7 +38,7 @@ const changeCellStatus = (
     { x: row, y: col }: CoordinateTypes,
     status: StatusTypes
 ): InitialStateTypes => {
-    const newState = _.cloneDeep(state);
+    const newState = _cloneDeep(state);
     newState.path = undefined;
 
     if (status === 'block' && newState.grid[row][col].status === 'block') {
