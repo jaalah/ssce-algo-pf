@@ -7,12 +7,6 @@ import { CoordinateTypes, CellTypes, VisitedCellTypes } from '../types';
 // to the destination node. The heuristic function is the Manhattan Distance
 // which essentially says, "How far away is the destination node from the current node?"
 
-// Mark all the vertices as not visited initially (Array or Set)
-// Mark all nodes with infinite distance except the start node (Array or Map)
-// Repeat the following steps (v-1) times until the destination node is reached:
-// 1. Pick the minimum value node which is unprocessed and mark it as processed.
-// 2. Update all adjacent nodes of the picked node with the minimum distance if the distance is less than the current distance.
-
 // Data Structures:
 // 1. We need to keep track of visited and unvisited nodes either using an array (O)n or a priority queue Set (O)1
 // 2. We need to mark the distance of each node from the start node. We can use an array (O)n or a Map (O)1
