@@ -8,7 +8,7 @@ import {
     Mode,
     StatusTypes
 } from '../types';
-import { runAlgorithm } from '../utils/astarv1';
+import { runAlgorithm } from '../utils/astar';
 import {
     SET_WALL,
     SET_MODE,
