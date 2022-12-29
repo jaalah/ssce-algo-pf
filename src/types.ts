@@ -71,6 +71,9 @@ export interface VisitedCellTypes {
     parent?: VisitedCellTypes;
     x: number;
     y: number;
+    // distance: number;
+    // status: StatusTypes;
+    // previous?: VisitedCellTypes
 }
 
 export interface InitialStateTypes {

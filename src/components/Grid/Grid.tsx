@@ -7,7 +7,6 @@ import {
 import { GridCell } from './GridCell';
 import './Grid.css';
 
-
 const Grid = ({
     end,
     grid,
@@ -38,6 +37,7 @@ const Grid = ({
         <div className="grid" onMouseDown={onMouseDown} onMouseUp={onMouseUp}>
             {grid.map((row: CellTypes[], rowIndex: number) => (
                 <div
+                    key={rowIndex}
                     className="grid-row"
                     style={{
                         gridTemplateColumns: `repeat(${gridSize.height}, 1fr)`

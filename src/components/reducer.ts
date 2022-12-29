@@ -8,7 +8,7 @@ import {
     Mode,
     StatusTypes
 } from '../types';
-import { computePath } from '../utils/algorithm';
+import { runAlgorithm } from '../utils/astarv1';
 import {
     SET_WALL,
     SET_MODE,
@@ -84,7 +84,7 @@ const Reducer = (
         case GET_PATH:
             return {
                 ...state,
-                path: computePath(state.grid, state.start, state.end)
+                path: runAlgorithm(state.grid, state.start, state.end)
             };
         case CLEAR_GRID:
             return updateGrid(state);
